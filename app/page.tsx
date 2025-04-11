@@ -68,7 +68,7 @@ export default function Home() {
       image: "/robo.png?height=400&width=600",
       category: "Web Application",
       date: "Jun 2023",
-      demoUrl: "akash5746.github.io/Robo_Ai/",
+      demoUrl: "https://akash5746.github.io/Robo_Ai/",
       githubUrl: "https://github.com/Akash5746/Robo_Ai",
       technologies: ["HTML", "CSS", "JavaScript", "UI/UX"],
     },
