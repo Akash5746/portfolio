@@ -24,6 +24,8 @@ import AnimatedGradientBackground from "@/components/animated-gradient-backgroun
 import ParticleBackground from "@/components/particle-background";
 import CustomCursor from "@/components/custom-cursor";
 import ParticleText from "@/components/particle-text";
+import ContactForm from "@/components/contact-form";
+import CertificationViewer from "@/components/certification-viewer";
 
 // Create a client-only wrapper component
 function ClientOnly({ children }) {
@@ -40,14 +42,70 @@ function ClientOnly({ children }) {
   return children;
 }
 
+// Certification data
+const certifications = [
+  {
+    title: "Introduction to Web Development with HTML, CSS, JavaScript",
+    image: "/placeholder.svg?height=200&width=300",
+    description:
+      "Comprehensive introduction to web development fundamentals including HTML structure, CSS styling, and JavaScript programming.",
+    issuer: "Coursera",
+    date: "January 2023",
+    url: "https://www.coursera.org/",
+  },
+  {
+    title: "Developing AI Applications with Python and Flask",
+    image: "/placeholder.svg?height=200&width=300",
+    description:
+      "Building AI-powered web applications using Python, Flask, and modern machine learning libraries.",
+    issuer: "Udemy",
+    date: "March 2023",
+    url: "https://www.udemy.com/",
+  },
+  {
+    title: "Data Structures and Algorithms Specialization",
+    image: "/placeholder.svg?height=200&width=300",
+    description:
+      "In-depth study of data structures and algorithms with practical implementations in various programming languages.",
+    issuer: "edX",
+    date: "June 2023",
+    url: "https://www.edx.org/",
+  },
+  {
+    title: "Introduction to Data Analytics",
+    image: "/placeholder.svg?height=200&width=300",
+    description:
+      "Fundamentals of data analytics including data collection, cleaning, analysis, and visualization techniques.",
+    issuer: "DataCamp",
+    date: "August 2023",
+    url: "https://www.datacamp.com/",
+  },
+  {
+    title: "Data Visualization with Tableau",
+    image: "/placeholder.svg?height=200&width=300",
+    description:
+      "Creating interactive and insightful data visualizations using Tableau software.",
+    issuer: "Tableau",
+    date: "October 2023",
+    url: "https://www.tableau.com/",
+  },
+];
+
 export default function Home() {
   // Add this to handle SSR
   const [isClient, setIsClient] = useState(false);
+  const [selectedCertification, setSelectedCertification] = useState(null);
+  const [isCertificationViewerOpen, setIsCertificationViewerOpen] =
+    useState(false);
 
   useEffect(() => {
     setIsClient(true);
   }, []);
 
+  const handleCertificationClick = (certification) => {
+    setSelectedCertification(certification);
+    setIsCertificationViewerOpen(true);
+  };
   // Project data
   const projects = [
     {
@@ -531,13 +589,7 @@ export default function Home() {
             >
               <h3 className="text-xl font-semibold mb-6">Certifications</h3>
               <div className="space-y-4">
-                {[
-                  "Introduction to Web Development with HTML, CSS, JavaScript",
-                  "Developing AI Applications with Python and Flask",
-                  "Data Structures and Algorithms Specialization",
-                  "Introduction to Data Analytics",
-                  "Data Visualization with Tableau",
-                ].map((cert, index) => (
+                {certifications.map((cert, index) => (
                   <motion.div
                     key={index}
                     initial={{ opacity: 0, x: 50 }}
@@ -545,9 +597,14 @@ export default function Home() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.1 * index }}
                   >
-                    <Card className="shadow-md transform transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                    <Card
+                      className="shadow-md transform transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer"
+                      onClick={() => handleCertificationClick(cert)}
+                    >
                       <CardHeader className="py-4">
-                        <CardTitle className="text-base">{cert}</CardTitle>
+                        <CardTitle className="text-base">
+                          {cert.title}
+                        </CardTitle>
                       </CardHeader>
                     </Card>
                   </motion.div>
@@ -777,6 +834,14 @@ export default function Home() {
             </div>
           </div>
         </footer>
+        {/* Certification Viewer */}
+        {selectedCertification && (
+          <CertificationViewer
+            isOpen={isCertificationViewerOpen}
+            onClose={() => setIsCertificationViewerOpen(false)}
+            certification={selectedCertification}
+          />
+        )}
       </div>
     </ClientOnly>
   );
