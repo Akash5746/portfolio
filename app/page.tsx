@@ -46,48 +46,48 @@ function ClientOnly({ children }) {
 const certifications = [
   {
     title: "Introduction to Web Development with HTML, CSS, JavaScript",
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/Intro-to-web.png?height=200&width=300",
     description:
-      "Comprehensive introduction to web development fundamentals including HTML structure, CSS styling, and JavaScript programming.",
-    issuer: "Coursera",
-    date: "January 2023",
-    url: "https://www.coursera.org/",
+      "Gained hands-on experience in building dynamic websites using HTML for structure, CSS for design, and JavaScript for interactivity. Also learned key web development tools like Git and popular IDEs.",
+    issuer: "IBM",
+    date: "July 2023",
+    url: "https://coursera.org/ver ify/L7M6MB8WMCQT",
   },
   {
     title: "Developing AI Applications with Python and Flask",
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/Developing-Ai-Appl.png?height=200&width=300",
     description:
-      "Building AI-powered web applications using Python, Flask, and modern machine learning libraries.",
-    issuer: "Udemy",
-    date: "March 2023",
-    url: "https://www.udemy.com/",
+      "Learned to build and deploy AI-based web apps using Python, Flask, and IBM Watson, while following best coding and testing practices.",
+    issuer: "IBM",
+    date: "March 2024",
+    url: "https://coursera.org/ver ify/HS4CECAE82TG",
   },
   {
     title: "Data Structures and Algorithms Specialization",
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/Algorithmic-Toolbox.png?height=200&width=300",
     description:
       "In-depth study of data structures and algorithms with practical implementations in various programming languages.",
-    issuer: "edX",
-    date: "June 2023",
-    url: "https://www.edx.org/",
+    issuer: "University of California San Diego",
+    date: "July 2024",
+    url: "https://coursera.org/ver ify/3CQ9VNXPEWRC",
   },
   {
     title: "Introduction to Data Analytics",
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/Intro-to-data-analytics.png?height=200&width=300",
     description:
       "Fundamentals of data analytics including data collection, cleaning, analysis, and visualization techniques.",
-    issuer: "DataCamp",
-    date: "August 2023",
-    url: "https://www.datacamp.com/",
+    issuer: "IBM",
+    date: "January 2023",
+    url: "https://coursera.org/ver ify/VSFK4D5QRHZT",
   },
   {
     title: "Data Visualization with Tableau",
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/Data-Visualization-with-tableau.png?height=200&width=300",
     description:
       "Creating interactive and insightful data visualizations using Tableau software.",
-    issuer: "Tableau",
-    date: "October 2023",
-    url: "https://www.tableau.com/",
+    issuer: "University of California, Davis",
+    date: "December 2023",
+    url: "https://coursera.org/verify/specialization/EA8T2QAYUPAW",
   },
 ];
 
