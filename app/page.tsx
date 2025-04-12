@@ -51,7 +51,7 @@ const certifications = [
       "Gained hands-on experience in building dynamic websites using HTML for structure, CSS for design, and JavaScript for interactivity. Also learned key web development tools like Git and popular IDEs.",
     issuer: "IBM",
     date: "July 2023",
-    url: "https://coursera.org/ver ify/L7M6MB8WMCQT",
+    url: "https://coursera.org/verify/L7M6MB8WMCQT",
   },
   {
     title: "Developing AI Applications with Python and Flask",
@@ -60,7 +60,7 @@ const certifications = [
       "Learned to build and deploy AI-based web apps using Python, Flask, and IBM Watson, while following best coding and testing practices.",
     issuer: "IBM",
     date: "March 2024",
-    url: "https://coursera.org/ver ify/HS4CECAE82TG",
+    url: "https://coursera.org/verify/HS4CECAE82TG",
   },
   {
     title: "Data Structures and Algorithms Specialization",
@@ -69,7 +69,7 @@ const certifications = [
       "In-depth study of data structures and algorithms with practical implementations in various programming languages.",
     issuer: "University of California San Diego",
     date: "July 2024",
-    url: "https://coursera.org/ver ify/3CQ9VNXPEWRC",
+    url: "https://coursera.org/verify/3CQ9VNXPEWRC",
   },
   {
     title: "Introduction to Data Analytics",
@@ -78,7 +78,7 @@ const certifications = [
       "Fundamentals of data analytics including data collection, cleaning, analysis, and visualization techniques.",
     issuer: "IBM",
     date: "January 2023",
-    url: "https://coursera.org/ver ify/VSFK4D5QRHZT",
+    url: "https://coursera.org/verify/VSFK4D5QRHZT",
   },
   {
     title: "Data Visualization with Tableau",
