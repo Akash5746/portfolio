@@ -54,6 +54,15 @@ const certifications = [
     url: "https://coursera.org/verify/L7M6MB8WMCQT",
   },
   {
+    title: "SQL for Beginners",
+    image: "/SQL-Certificate.png?height=200&width=300",
+    description:
+      "Master SQL step-by-step through hands-on coding exercises, real-world examples, and detailed explanations by industry experts. Gain practical skills in writing queries, managing databases, and using essential SQL statements like COMMIT and ROLLBACK.",
+    issuer: "Udemy",
+    date: "April 2025",
+    url: "https://udemy-certificate.s3.amazonaws.com/image/UC-e5c2791e-5153-4fc5-98ff-55f85c0f7d03.jpg",
+  },
+  {
     title: "Developing AI Applications with Python and Flask",
     image: "/Developing-Ai-Appl.png?height=200&width=300",
     description:
