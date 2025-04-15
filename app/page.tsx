@@ -816,7 +816,7 @@ export default function Home() {
             </div>
             <div className="flex gap-4">
               <Link
-                href="https://linkedin.com/"
+                href="https://www.linkedin.com/in/akash-mishra-3a8339231/"
                 target="_blank"
                 className="text-muted-foreground hover:text-primary transition-colors duration-300"
               >
