@@ -1,13 +1,13 @@
-"use client"
+"use client";
 
-import { useState, useEffect, useCallback } from "react"
-import Link from "next/link"
-import { Github, Linkedin, Menu, Moon, Sun } from "lucide-react"
-import { useTheme } from "next-themes"
+import { useState, useEffect, useCallback } from "react";
+import Link from "next/link";
+import { Github, Linkedin, Menu, Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
 
-import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { useMobile } from "@/hooks/use-mobile"
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { useMobile } from "@/hooks/use-mobile";
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -16,77 +16,77 @@ const navLinks = [
   { href: "#skills", label: "Skills" },
   { href: "#education", label: "Education" },
   { href: "#contact", label: "Contact" },
-]
+];
 
 export function Navbar() {
-  const { theme, setTheme } = useTheme()
-  const isMobile = useMobile()
-  const [activeSection, setActiveSection] = useState("home")
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [mounted, setMounted] = useState(false)
+  const { theme, setTheme } = useTheme();
+  const isMobile = useMobile();
+  const [activeSection, setActiveSection] = useState("home");
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   // Memoize the scroll handler to avoid recreating it on each render
   const handleScroll = useCallback(() => {
-    if (typeof window === "undefined") return
+    if (typeof window === "undefined") return;
 
     // Set navbar background when scrolled
-    setIsScrolled(window.scrollY > 10)
+    setIsScrolled(window.scrollY > 10);
 
     // Find active section
-    const sections = navLinks.map((link) => link.href.substring(1))
-    sections.unshift("home") // Add home section
+    const sections = navLinks.map((link) => link.href.substring(1));
+    sections.unshift("home"); // Add home section
 
     for (const section of sections.reverse()) {
       // Check from bottom to top
-      const element = document.getElementById(section)
+      const element = document.getElementById(section);
       if (element) {
-        const rect = element.getBoundingClientRect()
+        const rect = element.getBoundingClientRect();
         if (rect.top <= 100) {
           // If section is at top of viewport
-          setActiveSection(section)
-          break
+          setActiveSection(section);
+          break;
         }
       }
     }
-  }, [])
+  }, []);
 
   // Handle scroll and set active section
   useEffect(() => {
     // Mark component as mounted
-    setMounted(true)
+    setMounted(true);
 
     // Only run in browser environment
-    if (typeof window === "undefined") return
+    if (typeof window === "undefined") return;
 
     // Add event listener for scroll
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll);
 
     // Initial check
-    handleScroll()
+    handleScroll();
 
     // Cleanup
     return () => {
       if (typeof window !== "undefined") {
-        window.removeEventListener("scroll", handleScroll)
+        window.removeEventListener("scroll", handleScroll);
       }
-    }
-  }, [handleScroll])
+    };
+  }, [handleScroll]);
 
   // Smooth scroll to section
   const scrollToSection = useCallback((sectionId: string) => {
-    if (typeof document === "undefined") return
+    if (typeof document === "undefined") return;
 
-    const element = document.getElementById(sectionId)
+    const element = document.getElementById(sectionId);
     if (element) {
       window.scrollTo({
         top: element.offsetTop - 80, // Account for navbar height
         behavior: "smooth",
-      })
+      });
     }
-  }, [])
+  }, []);
 
   // Don't render anything until mounted to prevent hydration mismatch
-  if (!mounted) return null
+  if (!mounted) return null;
 
   return (
     <header
@@ -110,11 +110,13 @@ export function Navbar() {
               key={link.href}
               href={link.href}
               onClick={(e) => {
-                e.preventDefault()
-                scrollToSection(link.href.substring(1))
+                e.preventDefault();
+                scrollToSection(link.href.substring(1));
               }}
               className={`transition-colors hover:text-primary ${
-                activeSection === link.href.substring(1) ? "text-primary font-medium" : "text-muted-foreground"
+                activeSection === link.href.substring(1)
+                  ? "text-primary font-medium"
+                  : "text-muted-foreground"
               }`}
             >
               {link.label}
@@ -137,13 +139,16 @@ export function Navbar() {
           {/* Social Links */}
           <div className="hidden md:flex gap-2">
             <Button variant="ghost" size="icon" asChild>
-              <Link href="https://linkedin.com/" target="_blank">
+              <Link
+                href="https://www.linkedin.com/in/akash-mishra-3a8339231/"
+                target="_blank"
+              >
                 <Linkedin className="h-5 w-5" />
                 <span className="sr-only">LinkedIn</span>
               </Link>
             </Button>
             <Button variant="ghost" size="icon" asChild>
-              <Link href="https://github.com/" target="_blank">
+              <Link href="https://github.com/Akash5746/" target="_blank">
                 <Github className="h-5 w-5" />
                 <span className="sr-only">GitHub</span>
               </Link>
@@ -151,7 +156,10 @@ export function Navbar() {
           </div>
 
           {/* Contact Button (Desktop) */}
-          <Button className="hidden md:flex" onClick={() => scrollToSection("contact")}>
+          <Button
+            className="hidden md:flex"
+            onClick={() => scrollToSection("contact")}
+          >
             Get in Touch
           </Button>
 
@@ -174,11 +182,13 @@ export function Navbar() {
                       key={link.href}
                       href={link.href}
                       onClick={(e) => {
-                        e.preventDefault()
-                        scrollToSection(link.href.substring(1))
+                        e.preventDefault();
+                        scrollToSection(link.href.substring(1));
                       }}
                       className={`text-lg py-2 transition-colors hover:text-primary ${
-                        activeSection === link.href.substring(1) ? "text-primary font-medium" : "text-muted-foreground"
+                        activeSection === link.href.substring(1)
+                          ? "text-primary font-medium"
+                          : "text-muted-foreground"
                       }`}
                     >
                       {link.label}
@@ -202,10 +212,12 @@ export function Navbar() {
                   </div>
                   <Button
                     onClick={() => {
-                      scrollToSection("contact")
-                      const sheetElement = document.querySelector('[data-state="open"]')
+                      scrollToSection("contact");
+                      const sheetElement = document.querySelector(
+                        '[data-state="open"]'
+                      );
                       if (sheetElement) {
-                        sheetElement.setAttribute("data-state", "closed")
+                        sheetElement.setAttribute("data-state", "closed");
                       }
                     }}
                   >
@@ -218,5 +230,5 @@ export function Navbar() {
         </div>
       </div>
     </header>
-  )
+  );
 }
