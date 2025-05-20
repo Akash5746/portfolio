@@ -152,6 +152,50 @@ export default function Home() {
         "https://drive.google.com/file/d/1UqEKmxIPHSm0EltvjYuR2VvTRIJbEbf3/view",
       technologies: ["Python", "IoT", "3D Modeling", "Sensor Fusion"],
     },
+    {
+      title: "Sales Dashboard Analysis Using Power BI",
+      description:
+        "Designed an interactive Power BI dashboard featuring slicers, KPIs, treemaps, pie charts, and maps to visualize sales trends, product performance, and geographic insights. Enhanced data-driven decision-making by implementing dynamic filters and troubleshooting DAX-based measures to resolve missing or blank data issues.",
+      image: "/Sales_Dashboard.png?height=400&width=600",
+      category: "Power Bi Dashboard",
+      date: "April 2025",
+      demoUrl:
+        "https://github.com/Akash5746/Sales-and-Profit-Analysis-Dashboard",
+      githubUrl:
+        "https://github.com/Akash5746/Sales-and-Profit-Analysis-Dashboard",
+      technologies: [
+        "SQL",
+        "ETL",
+        "Power BI dashboard ",
+        "DAX",
+        "Data Modeling",
+        "Extracted business insights",
+        "KPIs",
+        "Visual Analytics",
+      ],
+    },
+    {
+      title: "Spotify Listening Data Analysis",
+      description:
+        "Built an end-to-end Power BI dashboard using DAX, data modeling, and interactive visuals to analyze Spotify listening behavior, integrating raw track-level data (timestamps, playback duration, shuffle/skipped, start/end reasons) to identify patterns across albums, artists, and tracks, Extracted business insights through KPIs and visual analytics (heatmaps, scatter plots, bar charts, slicers, drill-downs) to evaluate user engagement by time, platform, and content, enabling year-over-year analysis, peak hour detection, and engagement quadrant mapping.",
+      image: "/Spotify_DashBoard.jpeg?height=400&width=600",
+      category: "Power Bi Dashboard",
+      date: "May 2025",
+      demoUrl: "https://github.com/Akash5746/Spotify-Listening-Data-Analysis",
+      githubUrl:
+        "https://github.com/Akash5746/Spotify-Listening-Data-Analysisi",
+      technologies: [
+        "SQL",
+        "ETL",
+        "Power BI dashboard ",
+        "DAX",
+        "Data Modeling",
+        "Extracted business insights",
+        "KPIs",
+        "Visual Analytics",
+        "slicers & Drill Features",
+      ],
+    },
   ];
 
   // Skills data
