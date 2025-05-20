@@ -178,7 +178,7 @@ export default function Home() {
       title: "Spotify Listening Data Analysis",
       description:
         "Built an end-to-end Power BI dashboard using DAX, data modeling, and interactive visuals to analyze Spotify listening behavior, integrating raw track-level data (timestamps, playback duration, shuffle/skipped, start/end reasons) to identify patterns across albums, artists, and tracks, Extracted business insights through KPIs and visual analytics (heatmaps, scatter plots, bar charts, slicers, drill-downs) to evaluate user engagement by time, platform, and content, enabling year-over-year analysis, peak hour detection, and engagement quadrant mapping.",
-      image: "/Spotify_DashBoard.jpeg?height=400&width=600",
+      image: "/Spotify_DashBoard.jpg?height=400&width=600",
       category: "Power Bi Dashboard",
       date: "May 2025",
       demoUrl: "https://github.com/Akash5746/Spotify-Listening-Data-Analysis",
