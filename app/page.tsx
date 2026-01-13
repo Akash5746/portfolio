@@ -118,9 +118,31 @@ export default function Home() {
   // Project data
   const projects = [
     {
+      title: "MyAIML Platform",
+      description:
+        "The MyEquation website presents an industry-focused learning platform dedicated to Artificial Intelligence, Machine Learning, and Deep Learning, featuring a structured 55+ hour program that covers Python, ML, Deep Learning, Generative AI, and real-world use cases. With a strong emphasis on hands-on, industrial-grade projects, expert mentorship from professionals at NVIDIA and IBM, and verified certifications backed by AWS and NASSCOM, the platform offers self-paced, lifetime access learning and career-focused guidance, positioning MyEquation as a one-stop ecosystem for building job-ready AI and ML skills.",
+      image: "/MyAIML.png?height=400&width=600",
+      category: "Full Stack",
+      date: "Apr 2024",
+      demoUrl: "https://myequation-aiml-website.vercel.app/",
+      githubUrl: "https://github.com/sahilsh-dev/myequation-aiml-website",
+      technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
+    },
+    {
+      title: "NGO-Impact-Tracker",
+      description:
+        "A simple two-tier application designed to collect monthly reports from NGOs through either single form submissions or bulk CSV uploads. The system ensures easy data entry, validation, and storage with minimal complexity. It includes a lightweight dashboard that allows administrators to view, filter, and analyze submitted reports efficiently. The application focuses on usability, quick onboarding, and low infrastructure overhead. It is ideal for small to mid-sized NGOs looking for a scalable yet cost-effective reporting solution.",
+      image: "/job.jpg?height=400&width=600",
+      category: "Full Stack",
+      date: "Apr 2024",
+      demoUrl: "ngo-impact-tracker-ten.vercel.app",
+      githubUrl: "https://github.com/Akash5746/NGO-Impact-Tracker",
+      technologies: ["React", "Tailwind CSS", "MongoDB", "Express", "Node.js"],
+    },
+    {
       title: "Job Portal",
       description:
-        "A MERN stack job portal enabling users to register as applicants or recruiters, with persistent login and secure JWT-protected REST APIs.",
+        "A full-featured MERN stack job portal that allows users to register as applicants or recruiters with clear role-based access. The platform supports persistent login using secure authentication mechanisms and JWT-protected REST APIs. Applicants can browse and apply for jobs, manage profiles, and track applications, while recruiters can post jobs, manage listings, and review candidates. The system ensures secure data handling, scalable backend architecture, and a responsive user-friendly interface.",
       image: "/job.jpg?height=400&width=600",
       category: "Full Stack",
       date: "Apr 2024",
@@ -131,7 +153,7 @@ export default function Home() {
     {
       title: "Robo-Ai",
       description:
-        "An interactive education website, streamlining course listings, registration deadlines, and team profiles; improved user experience by 15% through client feedback integration.",
+        "An interactive education website designed to streamline course listings, highlight registration deadlines, and showcase team profiles in a clear and engaging manner. The platform focuses on intuitive navigation and responsive design to enhance accessibility across devices. User flows were refined based on continuous client feedback, resulting in a 15% improvement in overall user experience. The website ensures easy content updates, better information visibility, and a more engaging experience for prospective learners.",
       image: "/robo.png?height=400&width=600",
       category: "Web Application",
       date: "Jun 2023",
@@ -142,7 +164,7 @@ export default function Home() {
     {
       title: "3D Profiling System",
       description:
-        "A 3D model generation system using sensor technologies on drones, combining ultrasonic sensors for proximity, LiDAR for point cloud data, and MPU6050 IMU for motion tracking.",
+        "A 3D model generation system that leverages drone-mounted sensor technologies to capture accurate spatial data. The system integrates ultrasonic sensors for proximity and obstacle detection, LiDAR for high-resolution point cloud generation, and the MPU6050 IMU for precise motion and orientation tracking. Sensor data is fused to improve spatial accuracy and stability during flight. The collected data is processed to reconstruct detailed 3D models, making the solution suitable for mapping, construction analysis, and infrastructure planning.",
       image: "/3D_image.png?height=400&width=600",
       category: "Research",
       date: "Apr 2024",
