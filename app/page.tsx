@@ -297,17 +297,22 @@ export default function Home() {
               transition={{ duration: 0.6 }}
             >
               <p className="text-lg leading-relaxed mb-6">
-                I'm a Computer Science Engineering student at Chandigarh
-                University with a passion for software development, web
-                technologies, and data analytics. I have experience in
-                full-stack development and have worked on various projects
-                ranging from job portals to 3D modeling systems.
+                I’m Akash Mishra, a Full Stack Software Developer with
+                experience building production-grade applications across
+                frontend, backend, and cloud platforms. I graduated in 2025 in
+                Computer Science from Chandigarh University and currently work
+                at Dextra Labs, contributing to a global healthcare platform
+                used by thousands of surgeons by building features, integrating
+                APIs, and working with cloud services using React.js, React
+                Native, Angular, Node.js, and NestJS.
               </p>
               <p className="text-lg leading-relaxed">
-                My technical expertise includes programming languages like C,
-                C++, Python, JavaScript, and tools like AWS, MySQL, Power BI,
-                and Tableau. I'm constantly learning and exploring new
-                technologies to enhance my skills.
+                I focus on clean architecture, scalability, performance, and
+                secure RESTful APIs, with experience in TypeScript, Next.js,
+                PostgreSQL, MongoDB, Redis, Docker, and Linux, along with
+                backend fundamentals from Java and Spring Boot. I’m excited to
+                take ownership across the stack and deliver reliable,
+                production-ready systems.
               </p>
             </motion.div>
 
@@ -330,7 +335,7 @@ export default function Home() {
                 </div>
                 <div className="flex justify-between">
                   <span className="font-medium">Phone:</span>
-                  <span>+91-8004815141</span>
+                  <span>+91-9451486533</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="font-medium">Education:</span>
@@ -342,7 +347,7 @@ export default function Home() {
                 </div>
                 <div className="flex justify-between">
                   <span className="font-medium">CGPA:</span>
-                  <span>7.55</span>
+                  <span>7.66 </span>
                 </div>
               </div>
             </motion.div>
@@ -365,28 +370,91 @@ export default function Home() {
                   <CardHeader>
                     <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-2">
                       <div>
-                        <CardTitle>Software Developer</CardTitle>
-                        <CardDescription>MyEquation</CardDescription>
+                        <CardTitle>Software Engineer</CardTitle>
+                        <CardDescription>
+                          Dextra Labs Innovation Pvt Ltd
+                        </CardDescription>
                       </div>
                       <Badge className="bg-primary hover:bg-primary/90">
-                        Jun 2023 - Aug 2023
+                        Jul 2025 - Present
                       </Badge>
                     </div>
                   </CardHeader>
                   <CardContent>
                     <ul className="list-disc pl-5 space-y-2">
                       <li>
-                        Proficiently developed a dynamic website using Web
-                        Development tools, prioritizing intuitive UI/UX with
-                        functional programming. Gained experience in
-                        collaborating within a team and meeting client
-                        deadlines.
+                        Contributed as a Software Engineer on enterprise-scale
+                        web applications, supporting the development and
+                        maintenance of end-to-end solutions that integrate
+                        backend services with user-facing interfaces. Developed
+                        and enhanced React-based frontend components and
+                        integrated them with RESTful APIs built using Java and
+                        Spring Boot, ensuring reliable data exchange and
+                        consistent application behavior. Worked closely with
+                        product owners, designers, and engineering teams to
+                        translate functional requirements into reusable UI
+                        components and intuitive, data-driven user experiences.
                       </li>
                       <li>
-                        Conducted market analysis to identify trends and
-                        insights that informed the design and content strategy
-                        of the website, resulting in increased traffic and
-                        customer engagement.
+                        Actively supported API integration, asynchronous data
+                        processing, and User Acceptance Testing (UAT) for
+                        large-scale systems, ensuring performance, stability,
+                        and reliability across environments. Conducted service
+                        validation and troubleshooting using tools such as
+                        Postman, identified and resolved application and
+                        integration issues, and contributed to technical
+                        documentation. Played a key role in maintaining
+                        production readiness and delivering scalable,
+                        high-quality data-to-decision platforms for enterprise
+                        users.
+                      </li>
+                    </ul>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            </div>
+            <div className="max-w-3xl mx-auto">
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <Card className="shadow-lg transform transition-all duration-500 hover:shadow-xl hover:-translate-y-2">
+                  <CardHeader>
+                    <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-2">
+                      <div>
+                        <CardTitle>Software Developer Freelance</CardTitle>
+                        <CardDescription>MyEquation</CardDescription>
+                      </div>
+                      <Badge className="bg-primary hover:bg-primary/90">
+                        Jan 2025 - Jul 2025
+                      </Badge>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="list-disc pl-5 space-y-2">
+                      <li>
+                        Built and delivered the MyEquation-AIML platform from
+                        concept to production, contributing across both frontend
+                        and backend layers. Developed scalable user interfaces
+                        using Next.js, TypeScript, and Tailwind CSS, and
+                        implemented backend APIs with Node.js, including secure
+                        payment workflows. Optimized API performance and memory
+                        utilization, resulting in a 40% improvement in
+                        application responsiveness and a 50% increase in form
+                        completion rates, while supporting a system designed to
+                        scale for 10,000+ users.
+                      </li>
+                      <li>
+                        created the Robo-AI platform with React.js, focusing on
+                        performance optimization and clean, reusable component
+                        architecture. User engagement increased by 35% as a
+                        result of improved information architecture and
+                        responsiveness across devices. In a production-grade
+                        setting, I worked directly with stakeholders to
+                        guarantee usability, maintainability, and alignment with
+                        business objectives.
                       </li>
                     </ul>
                   </CardContent>
@@ -628,7 +696,7 @@ export default function Home() {
                   </div>
                   <div className="flex justify-between">
                     <span className="font-medium">CGPA:</span>
-                    <span>7.55</span>
+                    <span>7.66</span>
                   </div>
                 </CardContent>
               </Card>
@@ -759,7 +827,7 @@ export default function Home() {
                     href="tel:+918004815141"
                     className="hover:underline group-hover:text-primary transition-colors duration-300"
                   >
-                    +91-8004815141
+                    +91-9451486533
                   </a>
                 </motion.div>
 
