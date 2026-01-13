@@ -368,7 +368,7 @@ export default function Home() {
                   className="text-lg relative overflow-hidden group"
                 >
                   <a
-                    href="https://drive.google.com/file/d/1nRvn0QshoSuAapvspG-8pzPoZVKPuHvQ/view?usp=sharing"
+                    href="https://drive.google.com/file/d/1Q4KxfBIu0OEvVcl9aKehtosjgDaqsIW8/view?usp=sharing"
                     className="flex items-center gap-2"
                   >
                     <span className="relative z-10">Download Resume</span>
