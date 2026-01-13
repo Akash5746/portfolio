@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Github, Linkedin, Mail, Phone } from "lucide-react";
 import { motion } from "framer-motion";
+import emailjs from "@emailjs/browser";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -24,8 +25,9 @@ import AnimatedGradientBackground from "@/components/animated-gradient-backgroun
 import ParticleBackground from "@/components/particle-background";
 import CustomCursor from "@/components/custom-cursor";
 import ParticleText from "@/components/particle-text";
-import ContactForm from "@/components/contact-form";
 import CertificationViewer from "@/components/certification-viewer";
+import { useToast } from "@/hooks/use-toast";
+import { Toaster } from "@/components/ui/toaster";
 
 // Create a client-only wrapper component
 function ClientOnly({ children }) {
@@ -106,6 +108,13 @@ export default function Home() {
   const [selectedCertification, setSelectedCertification] = useState(null);
   const [isCertificationViewerOpen, setIsCertificationViewerOpen] =
     useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
   useEffect(() => {
     setIsClient(true);
@@ -115,6 +124,72 @@ export default function Home() {
     setSelectedCertification(certification);
     setIsCertificationViewerOpen(true);
   };
+
+  const handleInputChange = (e) => {
+    const { id, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [id]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      // EmailJS configuration
+      const serviceId = "service_yw7qjvh";
+      const templateId = "template_1fmwr7f";
+      const publicKey = "OOvFNKWEAVM1wH1lq";
+
+      console.log("Sending email with data:", {
+        name: formData.name,
+        email: formData.email,
+        message: formData.message.substring(0, 50) + "...",
+      });
+
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+      };
+
+      const response = await emailjs.send(
+        serviceId,
+        templateId,
+        templateParams,
+        publicKey
+      );
+      console.log("Email sent successfully:", response);
+
+      toast({
+        title: "Message Sent Successfully! ✓",
+        description: "Thank you for reaching out. I'll get back to you soon.",
+        duration: 5000,
+      });
+
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("Email sending failed:", error);
+      console.error("Error details:", error.text || error.message);
+      toast({
+        title: "Failed to Send Message",
+        description:
+          error.text ||
+          "Something went wrong. Please try again or contact me directly.",
+        variant: "destructive",
+        duration: 5000,
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   // Project data
   const projects = [
     {
@@ -123,10 +198,21 @@ export default function Home() {
         "The MyEquation website presents an industry-focused learning platform dedicated to Artificial Intelligence, Machine Learning, and Deep Learning, featuring a structured 55+ hour program that covers Python, ML, Deep Learning, Generative AI, and real-world use cases. With a strong emphasis on hands-on, industrial-grade projects, expert mentorship from professionals at NVIDIA and IBM, and verified certifications backed by AWS and NASSCOM, the platform offers self-paced, lifetime access learning and career-focused guidance, positioning MyEquation as a one-stop ecosystem for building job-ready AI and ML skills.",
       image: "/MyAIML.png?height=400&width=600",
       category: "Full Stack",
-      date: "Apr 2024",
+      date: "Dec 2025",
       demoUrl: "https://myequation-aiml-website.vercel.app/",
       githubUrl: "https://github.com/sahilsh-dev/myequation-aiml-website",
       technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
+    },
+    {
+      title: "Robo-Ai",
+      description:
+        "An interactive education website designed to streamline course listings, highlight registration deadlines, and showcase team profiles in a clear and engaging manner. The platform focuses on intuitive navigation and responsive design to enhance accessibility across devices. User flows were refined based on continuous client feedback, resulting in a 15% improvement in overall user experience. The website ensures easy content updates, better information visibility, and a more engaging experience for prospective learners.",
+      image: "/robo.png?height=400&width=600",
+      category: "Web Application",
+      date: "Jun 2023",
+      demoUrl: "https://akash5746.github.io/Robo_Ai/",
+      githubUrl: "https://github.com/Akash5746/Robo_Ai",
+      technologies: ["HTML", "CSS", "JavaScript", "UI/UX"],
     },
     {
       title: "NGO-Impact-Tracker",
@@ -134,7 +220,7 @@ export default function Home() {
         "A simple two-tier application designed to collect monthly reports from NGOs through either single form submissions or bulk CSV uploads. The system ensures easy data entry, validation, and storage with minimal complexity. It includes a lightweight dashboard that allows administrators to view, filter, and analyze submitted reports efficiently. The application focuses on usability, quick onboarding, and low infrastructure overhead. It is ideal for small to mid-sized NGOs looking for a scalable yet cost-effective reporting solution.",
       image: "/job.jpg?height=400&width=600",
       category: "Full Stack",
-      date: "Apr 2024",
+      date: "July 2025",
       demoUrl: "ngo-impact-tracker-ten.vercel.app",
       githubUrl: "https://github.com/Akash5746/NGO-Impact-Tracker",
       technologies: ["React", "Tailwind CSS", "MongoDB", "Express", "Node.js"],
@@ -150,17 +236,7 @@ export default function Home() {
       githubUrl: "https://github.com/Akash5746/Job-Portal",
       technologies: ["React", "Node.js", "MongoDB", "Express", "JWT"],
     },
-    {
-      title: "Robo-Ai",
-      description:
-        "An interactive education website designed to streamline course listings, highlight registration deadlines, and showcase team profiles in a clear and engaging manner. The platform focuses on intuitive navigation and responsive design to enhance accessibility across devices. User flows were refined based on continuous client feedback, resulting in a 15% improvement in overall user experience. The website ensures easy content updates, better information visibility, and a more engaging experience for prospective learners.",
-      image: "/robo.png?height=400&width=600",
-      category: "Web Application",
-      date: "Jun 2023",
-      demoUrl: "https://akash5746.github.io/Robo_Ai/",
-      githubUrl: "https://github.com/Akash5746/Robo_Ai",
-      technologies: ["HTML", "CSS", "JavaScript", "UI/UX"],
-    },
+
     {
       title: "3D Profiling System",
       description:
@@ -522,7 +598,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="bg-background/50 backdrop-blur-sm rounded-lg p-8 shadow-lg"
+                className="bg-background/50 backdrop-blur-sm rounded-lg p-8 shadow-lg pb-12"
               >
                 <Tabs defaultValue="technical" className="w-full">
                   <TabsList className="grid w-full grid-cols-3 mb-8">
@@ -549,7 +625,7 @@ export default function Home() {
                       </div>
                     </div>
 
-                    <div>
+                    {/* <div>
                       <h3 className="text-xl font-semibold mb-4">
                         Data Analytics
                       </h3>
@@ -564,7 +640,7 @@ export default function Home() {
                           />
                         ))}
                       </div>
-                    </div>
+                    </div> */}
                   </TabsContent>
 
                   <TabsContent value="tools" className="space-y-6">
@@ -614,7 +690,7 @@ export default function Home() {
                   </TabsContent>
 
                   <TabsContent value="interests">
-                    <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                       {[
                         "Research",
                         "Development",
@@ -663,12 +739,12 @@ export default function Home() {
 
                   <div className="relative z-10 grid grid-cols-2 md:grid-cols-3 gap-4 h-full">
                     {[
-                      "React",
+                      "React.js",
+                      "Next.js",
                       "Node.js",
-                      "Python",
-                      "TypeScript",
+                      "Express.js",
+                      "Spring Boot",
                       "MongoDB",
-                      "AWS",
                     ].map((skill, i) => (
                       <motion.div
                         key={i}
@@ -896,7 +972,7 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <h3 className="text-xl font-semibold mb-6">Send a Message</h3>
-              <form className="space-y-4">
+              <form className="space-y-4" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 gap-4">
                   <div className="space-y-2">
                     <label htmlFor="name" className="text-sm font-medium">
@@ -905,6 +981,9 @@ export default function Home() {
                     <input
                       id="name"
                       placeholder="Your Name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      required
                       className="w-full p-2 rounded-md border border-input bg-background focus:ring-2 focus:ring-primary/50 transition-all duration-300"
                     />
                   </div>
@@ -916,6 +995,9 @@ export default function Home() {
                       id="email"
                       type="email"
                       placeholder="Your Email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
                       className="w-full p-2 rounded-md border border-input bg-background focus:ring-2 focus:ring-primary/50 transition-all duration-300"
                     />
                   </div>
@@ -927,12 +1009,21 @@ export default function Home() {
                       id="message"
                       placeholder="Your Message"
                       rows={4}
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      required
                       className="w-full p-2 rounded-md border border-input bg-background resize-none focus:ring-2 focus:ring-primary/50 transition-all duration-300"
                     />
                   </div>
                 </div>
-                <Button className="w-full relative overflow-hidden group">
-                  <span className="relative z-10">Send Message</span>
+                <Button
+                  type="submit"
+                  className="w-full relative overflow-hidden group"
+                  disabled={isSubmitting}
+                >
+                  <span className="relative z-10">
+                    {isSubmitting ? "Sending..." : "Send Message"}
+                  </span>
                   <span className="absolute inset-0 bg-primary-foreground/10 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
                 </Button>
               </form>
@@ -985,6 +1076,7 @@ export default function Home() {
             certification={selectedCertification}
           />
         )}
+        <Toaster />
       </div>
     </ClientOnly>
   );
